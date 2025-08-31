@@ -1,0 +1,13 @@
+{% extends 'shop/base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h1>Your Dashboard</h1>
+<h3>Recently Viewed Items</h3>
+<ul>
+    {% for item in viewed %}
+        <li><a href="{% url 'item_detail' item.id %}">{{ item.name }}</a></li>
+    {% empty %}
+        <li>No viewed items yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
